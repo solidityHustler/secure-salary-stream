@@ -74,15 +74,15 @@ Create a `.env.local` file with the following variables:
 
 ```env
 # Blockchain Configuration
-NEXT_PUBLIC_CHAIN_ID=11155111
-NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
+VITE_CHAIN_ID=11155111
+VITE_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
 
 # Wallet Connect
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=YOUR_PROJECT_ID
+VITE_WALLET_CONNECT_PROJECT_ID=YOUR_PROJECT_ID
 
 # Contract Addresses (after deployment)
-NEXT_PUBLIC_SALARY_CONTRACT_ADDRESS=0x...
-NEXT_PUBLIC_FHE_CONTRACT_ADDRESS=0x...
+VITE_SALARY_CONTRACT_ADDRESS=0x...
+VITE_FHE_CONTRACT_ADDRESS=0x...
 ```
 
 ## 📋 Smart Contract Features

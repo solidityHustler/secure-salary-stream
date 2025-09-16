@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAccount, useWriteContract, useReadContract } from 'wagmi';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,15 @@ export const FHEPayrollManager = () => {
   });
   const [isProcessing, setIsProcessing] = useState(false);
   const [encryptedData, setEncryptedData] = useState<{[key: string]: string}>({});
+
+  // Auto-clear sensitive data on component unmount
+  useEffect(() => {
+    return () => {
+      // Clear sensitive data when component unmounts
+      setEmployees([]);
+      setEncryptedData({});
+    };
+  }, []);
 
   const handleAddEmployee = () => {
     if (!newEmployee.name || !newEmployee.position || !newEmployee.salary || !newEmployee.walletAddress) {
@@ -117,9 +126,12 @@ export const FHEPayrollManager = () => {
   const handleClearData = () => {
     setEmployees([]);
     setEncryptedData({});
+    // Clear any localStorage data if it exists
+    localStorage.removeItem('fhe-employee-data');
+    localStorage.removeItem('fhe-encrypted-data');
     toast({
       title: "Data Cleared",
-      description: "All employee data and encrypted information has been cleared",
+      description: "All employee data and encrypted information has been permanently removed",
     });
   };
 
@@ -313,6 +325,8 @@ export const FHEPayrollManager = () => {
               <p className="text-sm text-muted-foreground">
                 <strong>Privacy Notice:</strong> All salary data is encrypted using FHE technology. 
                 The actual salary amounts are never stored in plain text and remain private even during computation.
+                <br />
+                <strong>Data Security:</strong> All sensitive data is automatically cleared when you leave this page or use the "Clear All Data" button.
               </p>
             </div>
           </CardContent>

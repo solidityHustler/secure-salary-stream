@@ -37,13 +37,15 @@ This guide provides step-by-step instructions for deploying the Secure Salary St
 Click "Environment Variables" and add the following variables:
 
 ```
-NEXT_PUBLIC_CHAIN_ID=11155111
-NEXT_PUBLIC_RPC_URL=https://sepolia.infura.io/v3/b18fb7e6ca7045ac83c41157ab93f990
-NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=2ec9743d0d0cd7fb94dee1a7e6d33475
-NEXT_PUBLIC_INFURA_API_KEY=b18fb7e6ca7045ac83c41157ab93f990
-NEXT_PUBLIC_SALARY_CONTRACT_ADDRESS=
-NEXT_PUBLIC_FHE_CONTRACT_ADDRESS=
+VITE_CHAIN_ID=11155111
+VITE_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
+VITE_WALLET_CONNECT_PROJECT_ID=YOUR_PROJECT_ID
+VITE_INFURA_API_KEY=YOUR_INFURA_KEY
+VITE_SALARY_CONTRACT_ADDRESS=
+VITE_FHE_CONTRACT_ADDRESS=
 ```
+
+**Important**: Replace `YOUR_INFURA_KEY` and `YOUR_PROJECT_ID` with your actual keys.
 
 **Note**: Leave the contract addresses empty initially. You'll update them after deploying the smart contracts.
 
@@ -72,7 +74,7 @@ Before the application is fully functional, you need to deploy the smart contrac
 
 2. **Set up environment variables** (create `.env` file):
    ```
-   SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/b18fb7e6ca7045ac83c41157ab93f990
+   SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
    PRIVATE_KEY=your_private_key_here
    ETHERSCAN_API_KEY=your_etherscan_api_key
    ```
@@ -85,7 +87,7 @@ Before the application is fully functional, you need to deploy the smart contrac
 
 4. **Update Vercel environment variables** with the deployed contract address:
    - Go to Vercel dashboard → Project Settings → Environment Variables
-   - Update `NEXT_PUBLIC_SALARY_CONTRACT_ADDRESS` with the deployed contract address
+   - Update `VITE_SALARY_CONTRACT_ADDRESS` with the deployed contract address
 
 5. **Redeploy the application**:
    - Go to Vercel dashboard → Deployments
