@@ -1,7 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SalaryCard } from "./SalaryCard";
+import { FHEPayrollManager } from "./FHEPayrollManager";
 import { Badge } from "@/components/ui/badge";
-import { DollarSign, TrendingUp, Shield, Clock } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DollarSign, TrendingUp, Zap, Clock, Eye } from "lucide-react";
 
 interface PayrollDashboardProps {
   walletAddress: string;
@@ -108,13 +110,13 @@ export const PayrollDashboard = ({ walletAddress }: PayrollDashboardProps) => {
 
         <Card className="shadow-card">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Privacy Level</CardTitle>
-            <Shield className="h-4 w-4 text-accent" />
+            <CardTitle className="text-sm font-medium">FHE Encryption</CardTitle>
+            <Zap className="h-4 w-4 text-accent" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-accent">100%</div>
             <p className="text-xs text-muted-foreground">
-              Fully encrypted
+              Fully homomorphic
             </p>
           </CardContent>
         </Card>
@@ -153,22 +155,41 @@ export const PayrollDashboard = ({ walletAddress }: PayrollDashboardProps) => {
         </CardContent>
       </Card>
 
-      {/* Salary History */}
-      <Card className="shadow-card">
-        <CardHeader>
-          <CardTitle>Payment History</CardTitle>
-          <CardDescription>
-            Your encrypted salary payments and transaction history
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mockSalaryData.map((salary) => (
-              <SalaryCard key={salary.id} salary={salary} />
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      {/* FHE Payroll Management */}
+      <Tabs defaultValue="history" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="history" className="flex items-center gap-2">
+            <Eye className="h-4 w-4" />
+            Payment History
+          </TabsTrigger>
+          <TabsTrigger value="fhe" className="flex items-center gap-2">
+            <Zap className="h-4 w-4" />
+            FHE Manager
+          </TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="history" className="space-y-4">
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle>Encrypted Payment History</CardTitle>
+              <CardDescription>
+                Your FHE-encrypted salary payments and transaction history
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {mockSalaryData.map((salary) => (
+                  <SalaryCard key={salary.id} salary={salary} />
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="fhe" className="space-y-4">
+          <FHEPayrollManager />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

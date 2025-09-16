@@ -2,7 +2,7 @@ import { WalletConnect } from "@/components/WalletConnect";
 import { PayrollDashboard } from "@/components/PayrollDashboard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Shield, Eye, Lock, Users } from "lucide-react";
+import { Zap, Eye, Lock, Users, DollarSign, TrendingUp } from "lucide-react";
 import { useAccount } from 'wagmi';
 import heroImage from "@/assets/hero-crypto-payroll.jpg";
 
@@ -37,15 +37,15 @@ const Index = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg">
-                  <Shield className="h-6 w-6" />
+                  <Zap className="h-6 w-6" />
                 </div>
-                <span className="text-lg">End-to-End Encryption</span>
+                <span className="text-lg">FHE Encryption</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg">
                   <Eye className="h-6 w-6" />
                 </div>
-                <span className="text-lg">Private Salary Data</span>
+                <span className="text-lg">Private Data</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-white/10 rounded-lg">
@@ -106,31 +106,31 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <div className="text-center space-y-4">
                 <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Shield className="h-8 w-8 text-primary" />
+                  <Zap className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Complete Privacy</h3>
+                <h3 className="text-xl font-semibold">FHE Technology</h3>
                 <p className="text-muted-foreground">
-                  Salary amounts are encrypted, preventing workplace comparison and maintaining confidentiality.
+                  Fully Homomorphic Encryption enables computation on encrypted data without decryption.
                 </p>
               </div>
               
               <div className="text-center space-y-4">
                 <div className="mx-auto w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center">
-                  <Lock className="h-8 w-8 text-secondary" />
+                  <DollarSign className="h-8 w-8 text-secondary" />
                 </div>
-                <h3 className="text-xl font-semibold">Blockchain Security</h3>
+                <h3 className="text-xl font-semibold">Smart Payments</h3>
                 <p className="text-muted-foreground">
-                  Smart contracts ensure payments are secure, transparent, and automatically executed.
+                  Automated salary distribution with transparent blockchain verification and audit trails.
                 </p>
               </div>
               
               <div className="text-center space-y-4">
                 <div className="mx-auto w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center">
-                  <Users className="h-8 w-8 text-accent" />
+                  <TrendingUp className="h-8 w-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-semibold">HR Friendly</h3>
+                <h3 className="text-xl font-semibold">Future-Ready</h3>
                 <p className="text-muted-foreground">
-                  Seamless integration with existing HR systems and modern payroll workflows.
+                  Built for the next generation of payroll with Web3 integration and privacy-first design.
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Wallet, Shield, CheckCircle } from "lucide-react";
+import { Wallet, Zap, CheckCircle, Lock } from "lucide-react";
 import { useAccount } from 'wagmi';
 
 export const WalletConnect = () => {
@@ -47,17 +47,17 @@ export const WalletConnect = () => {
       <CardContent className="space-y-4">
         <div className="space-y-3">
           <div className="flex items-center gap-3 p-3 rounded-lg bg-accent/10">
-            <Shield className="h-5 w-5 text-accent" />
+            <Zap className="h-5 w-5 text-accent" />
             <div>
-              <p className="font-medium text-sm">Encrypted Payments</p>
-              <p className="text-xs text-muted-foreground">Your salary amounts remain private</p>
+              <p className="font-medium text-sm">FHE Encryption</p>
+              <p className="text-xs text-muted-foreground">Your salary data stays encrypted</p>
             </div>
           </div>
           <div className="flex items-center gap-3 p-3 rounded-lg bg-primary/10">
-            <CheckCircle className="h-5 w-5 text-primary" />
+            <Lock className="h-5 w-5 text-primary" />
             <div>
-              <p className="font-medium text-sm">Secure & Transparent</p>
-              <p className="text-xs text-muted-foreground">Blockchain-verified transactions</p>
+              <p className="font-medium text-sm">Blockchain Secured</p>
+              <p className="text-xs text-muted-foreground">Immutable transaction records</p>
             </div>
           </div>
         </div>
